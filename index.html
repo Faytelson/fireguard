@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+   <!-- Всплывающее окно с заявкой -->
+   <div class="js-callback-overlay overlay">
+      <div class="js-popup popup">
+         <div class="popup__title">заказать обратный звонок!</div>
+         <form action="" class="popup__form callback-form">
+            <input type="text" class="popup__input input" placeholder="Ваше имя">
+            <input type="tel" class="popup__input input" placeholder="Ваш телефон">
+            <div class="button popup__button js-close-popup">Отправить заявку</div>
+         </form>
+      </div>
+      <div class="close-popup js-close-popup"></div>
+   </div>
+
+   <div class="container">
+      <!-- шапка -->
+      <header class="header">
+         <div class="logo header__logo">
+            <img src="image/content/guard-logo.png" class="main-logo-image header__main-logo-image" alt="" title="">
+         </div>
+         <div class="mobile header__mobile">
+            <a href="tel: +74951234567">+7 (495) 123-45-67</a>
+         </div>
+         <div class="header__menu">
+
+            <ul class="header__nav nav">
+               <li class="header__nav-item">
+                  <a href="#">Услуги</a>
+               </li>
+               <li class="header__nav-item active">
+                  <a href="#">Проекты</a>
+               </li>
+               <li class="header__nav-item">
+                  <a href="#">Калькулятор</a>
+               </li>
+               <li class="header__nav-item">
+                  <a href="#">Контакты</a>
+               </li>
+            </ul>
+
+            <div class="menu-btn js-menu-btn">
+               <div class="menu-btn__icon">
+                  <span class="menu-btn__burger-line js-burger-line"></span>
+                  <span class="menu-btn__burger-line js-burger-line"></span>
+                  <span class="menu-btn__burger-line js-burger-line"></span>
+               </div>
+               <div class="menu-btn__text">Меню</div>
+            </div>
+         </div>
+
+         <div class="dropdown-menu js-dropdown-menu">
+            <ul class="dropdown-menu__nav">
+               <li class="dropdown-menu__nav-item"><a href="#" class="dropdown-menu__link">Услуги</a></li>
+               <li class="dropdown-menu__nav-item active"><a href="#" class="dropdown-menu__link">Проекты</a></li>
+               <li class="dropdown-menu__nav-item"><a href="#" class="dropdown-menu__link">Калькулятор</a></li>
+               <li class="dropdown-menu__nav-item"><a href="#" class="dropdown-menu__link">Контакты</a></li>
+            </ul>
+         </div>
+      </header>
+
+      <!-- первая страница -->
+      <section class="intro">
+         <div class="intro__wrapper wrapper">
+            <div class="intro__main-background main-background">
+               <img src="image/main-image.png" alt="Пожарная безопасность">
+            </div>
+
+            <div class="intro__about-us about-us">
+               <h1 class="intro__main-title main-title">Монтаж пожарной сигнализации
+                  и системы оповещения </h1>
+               <p class="intro__subtitle subtitle">Установка АПС И СОУЭ для Вашего бизнеса или крупной
+                  недвижимости в Москве и Московской области</p>
+               <div class="properties">
+                  <div class="properties__item">Большой опыт монтажа</div>
+                  <div class="properties__item">Доступная цена</div>
+                  <div class="properties__item">Поддержка гарантии</div>
+                  <div class="properties__item">Сертифицированное
+                     оборудование</div>
+               </div>
+
+               <form action="" class="intro__callback-form callback-form">
+                  <input type="text" class="intro__input input" placeholder="Ваш телефон">
+                  <div class="intro__button button js-form-btn">Отправить заявку</div>
+               </form>
+            </div>
+         </div>
+      </section>
+
+      <!-- информация для пользователя -->
+      <section class="info">
+         <div class="info__page-title page-title">Полезная информация для вас</div>
+         <div class="info__wrapper">
+            <div class="info__info-block info-block">
+               <div class="info__block-title block-title">Адресная система АПС</div>
+               <div class="info__block-image block-image">
+                  <img class="block-image__image" src="image/type1.png" alt="" title="">
+               </div>
+               <div class="info__properties2 properties2">
+                  <div class="properties2__item">Производственных помещений</div>
+                  <div class="properties2__item">Объектов с разными корпусами</div>
+                  <div class="properties2__item">Складских помещений</div>
+                  <div class="properties2__item"> Бизнес центров</div>
+                  <div class="properties2__item"> Больниц</div>
+               </div>
+               <div class="info__button-container">
+                  <span class="info__button" data-open="adress-system">Подробнее</span>
+               </div>
+
+               <!-- всплывашка -->
+               <div class="info__page-popup page-popup" data-block="adress-system">
+                  <div class="info__page-popup-wrapper">
+                     <div class="close-page-popup js-close-page-popup" data-close="adress-system"></div>
+                     <div class="info__block-title block-title">Адресная система АПС</div>
+                     <div class="info__page-popup-image-container">
+                        <img src="image/info-popup1.jpg" alt="" class="info__page-popup-img">
+                     </div>
+                     <div class="info__page-popup-subtitle page-popup-subtitle">Виды адресных систем пожарной и охранной
+                        безопасности:</div>
+                     <div class="page-popup__properties2 properties2">
+                        <div class="properties2__item">Беспроводные</div>
+                        <div class="properties2__item">Проводные</div>
+                     </div>
+                     <p class="info__page-popup-paragraph page-popup-paragraph">Беспроводные устройства существуют
+                        только адресные, а не адресно-аналоговые, как часто их именуют изготовители в маркетинговых
+                        целях.
+                        Собственно, что касается неадресной, то такая может являться лишь проводной.
+                        По этому же принципу работает и адресная охранная сигнализация. Цена ее монтажа ниже, чем у
+                        неадресной.
+                     </p>
+                     <div class="info__page-popup-subtitle page-popup-subtitle">Ее удобство определяется следующими
+                        показателями:</div>
+                     <div class="page-popup__properties2 properties2">
+                        <div class="properties2__item">cущественным сокращением работы по прокладыванию соединяющих
+                           путей</div>
+                        <div class="properties2__item"> осуществимостью сосредоточить положение системы с правильностью
+                           вплоть до одного датчика</div>
+                        <div class="properties2__item"> простотой их дальнейшего масштабирования</div>
+                        <div class="properties2__item">возможность привнести в ее конфигурацию требуемые модификации за
+                           короткий срок</div>
+                     </div>
+                     <div class="info__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы получить
+                        скидку 5%!</div>
+                     <button class="button js-button-click">Отправить заявку</button>
+                  </div>
+               </div>
+            </div>
+
+            <div class="info__info-block info-block">
+               <div class="info__block-title block-title">Аналоговая система АПС</div>
+               <div class="info__block-image block-image">
+                  <img class="block-image__image" src="image/type2.svg" alt="" title="">
+               </div>
+               <div class="properties2">
+                  <div class="properties2__item">Небольшие офисные помещения</div>
+                  <div class="properties2__item">Кафе/Рестораны/Бары</div>
+                  <div class="properties2__item">Салоны красоты</div>
+                  <div class="properties2__item">Частные дома</div>
+                  <div class="properties2__item">Магазины</div>
+               </div>
+               <div class="info__button-container">
+                  <span class="info__button" data-open="analog-system">Подробнее</span>
+               </div>
+
+               <!-- всплывашка -->
+               <div class="info__page-popup page-popup" data-block="analog-system">
+                  <div class="info__page-popup-wrapper">
+                     <div class="close-page-popup js-close-page-popup" data-close="analog-system"></div>
+                     <div class="info__block-title block-title">Аналоговая система АПС</div>
+                     <div class="info__page-popup-image-container">
+                        <img src="image/info-popup2.jpg" alt="" class="info__page-popup-img">
+                     </div>
+
+                     <p class="info__page-popup-paragraph page-popup-paragraph">Такой тип извещателей реагирует на
+                        сигнал в шлейфе, который
+                        передается извещателем на контрольный пункт. При этом, неизвестно, какой именно прибор послал
+                        сигнал.</p>
+                     <p class="info__page-popup-paragraph page-popup-paragraph">Дело в том, что к одному шлейфу может
+                        быть подключено несколько
+                        пожарных извещателей, точное количество которых зависит только от ограничений данной конкретной
+                        системы.</p>
+                     <p class="info__page-popup-paragraph page-popup-paragraph">Система же индикации неадресного
+                        контрольного прибора, как
+                        правило, представляет собой ряд светодиодов, каждый из которых отвечает за определенный шлейф.
+                        Если диод светится зеленым цветом — порядок, красным — «пожар» либо какое-либо
+                        несанкционированное воздействие на прибор.</p>
+                     <p class="info__page-popup-paragraph page-popup-paragraph">Такой подход может быть удобен на
+                        небольших объектах. Добиться же
+                        большей локализации такой системы можно лишь за счет увеличения количества шлейфов, а это уже
+                        влечет значительное усложнение системы и неминуемое увеличение количества проводов. Как
+                        следствие, снижается надежность системы. Однако, на помощь приходят адресные контрольные
+                        приборы, лишенные таких недостатков.</p>
+                     <div class="info__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы получить
+                        скидку 5%!</div>
+                     <button class="button js-button-click">Отправить заявку</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- баннер с заявкой 1 -->
+      <div class="banner">
+         <h2 class="page-title banner__page-title">Мы работаем со всеми обьектами!</h2>
+         <div class="subtitle banner__subtitle">Вы можете обратиться уже сейчас и заказать установку <br> пожарной
+            сигнализации
+            как для маленького магазина, <br> так и для торгового или бизнес-центра
+         </div>
+         <div class="banner__button button js-button-click">Отправить заявку</div>
+      </div>
+
+      <!-- выбор объекта -->
+      <section class="options">
+         <h2 class="page-title options__page-title">Выберите тип Вашего обьекта</h2>
+         <div class="wrapper options__wrapper">
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background">
+                  </div>
+                  <img src="image/pic1.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Пожарная безопасность<br> для офиса</h4>
+               </a>
+            </div>
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background"></div>
+                  <img src="image/pic2.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Пожарная безопасность<br> для склада</h4>
+               </a>
+            </div>
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background"></div>
+                  <img src="image/pic3.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Пожарная безопасность<br> для ресторана или бара</h4>
+               </a>
+            </div>
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background"></div>
+                  <img src="image/pic4.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Пожарная безопасность<br> для магазина</h4>
+               </a>
+            </div>
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background"></div>
+                  <img src="image/pic5.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Пожарная безопасность<br> для парковки</h4>
+               </a>
+            </div>
+            <div class="option">
+               <a href="#">
+                  <div class="option__dark-background dark-background"></div>
+                  <img src="image/pic6.jpg" alt="" class="option__image">
+                  <h4 class="option__tile-title tile-title">Другой вариант</h4>
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <!-- баннер с заявкой 2 -->
+      <div class="banner">
+         <h2 class="page-title banner__page-title">Готовые решения для Вас!</h2>
+         <div class="subtitle banner__subtitle">Не тратьте свое время и обратитесь к нашим специалистам.<br> Мы подберем
+            оборудование, подходящее для Вашего<br> объекта, в кратчайшие сроки.
+         </div>
+         <div class="banner__image">
+            <img src="image/man_top.png" alt="">
+         </div>
+         <form action="" class="banner__callback-form callback-form">
+            <input type="text" class="banner__input input" placeholder="Ваш телефон">
+            <div class="banner__button button js-form-btn">Заказать выезд</div>
+         </form>
+      </div>
+
+      <!-- примеры работ, сметы -->
+      <section class="portfolio">
+         <div class="page-title portfolio__page-title">Примеры выполненых работ</div>
+
+         <div class="portfolio__wrapper">
+            <div class="portfolio__popular-options popular-options">
+               <div class="popular-options__item" data-openestimate="restaurant">Ресторан</div>
+               <div class="popular-options__item" data-openestimate="office">Офис</div>
+               <div class="popular-options__item" data-openestimate="shop">Магазин</div>
+               <div class="popular-options__item" data-openestimate="parking">Парковка</div>
+               <div class="popular-options__item" data-openestimate="storage">Склад</div>
+               <div class="popular-options__item" data-openestimate="building">Муниципальное здание</div>
+            </div>
+
+            <div class="slider-box">
+               <div class="slider-box__container js-slider">
+                  <div class="slider-box__item" data-openestimate="restaurant">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для ресторана</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic1.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-box__item" data-openestimate="office">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для офиса</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic2.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-box__item" data-openestimate="shop">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для магазина</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic3.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-box__item" data-openestimate="parking">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для магазина</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic4.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-box__item" data-openestimate="storage">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для магазина</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic5.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-box__item" data-openestimate="other">
+                     <div>
+                        <div class="slider-box__dark-background dark-background"></div>
+                        <div class="slider-box__tile-title tile-title">Пример сметы для магазина</div>
+                        <div class="slider-box__image">
+                           <img src="image/pic6.jpg" alt="" title="">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="slider-box__slider-icon slider-icon">
+                  <div class="slider-box__button js-prev">
+                     <ion-icon name="arrow-back-outline"></ion-icon>
+                  </div>
+                  <span class="slider-box__counter"><span class="slider-box__counter-current"></span>/<span
+                        class="slider-box__counter-total">0</span></span>
+                  <div class="slider-box__button js-next">
+                     <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- всплывающее окно со сметой -->
+         <div class="popup-estimate" data-blockestimate="restaurant">
+            <div class="popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="restaurant"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">ВЭРС-ПК 8П версия 3.2: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 3950 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Извещатель пожарный ИП-212-45: </span>38 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 322 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">ИПР 513-3М корпус-пластмасса: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 343 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Иволга, оповещатель охранно-пожарный звуковой:
+                     </span>3 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 189 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Молния 12 "Выход", оповещатель: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph"> Цена за штуку - 160 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Аккумулятор 12В, 4,5А/ч: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 620 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель КПСнг(А)-FRLS 1х2х0,75:
+                     </span>450 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр -17,6 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель ВВГнг(А)-LS 3х1,5:</span> 10 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 40 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Короб 15х10
+                        (Промрукав): </span>20 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 12 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Труба гофрированная с протяжкой D=16: </span>400 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 6,8 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Монтажный комплект и расходные материалы: </span>1
+                     комплект
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за комплект - 3000
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     ИТОГО: 33665 руб</div>
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">бизнес</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 300 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Прибор приемно-контрольный Сигнал-20: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 6678 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Преобразователь интерфейса С2000 Ethernet: </span>1
+                     шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 2190 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Извещатель пожарный дымовой ИП 212-141: </span>60 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 243 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Извещатель пожарный ручной ИПР-513-10: </span>5 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 199 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Сирена «Иволга» ПКИ-1: </span>5 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 197 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Табло «Выход» Молния-12: </span>8 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 160 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Блок питания ИВЭПР 12/2: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 2525 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Аккумуляторная батарея 7 А/ч: </span>2 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку- 591 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель огнестойкий КПСнг (А) FRLS 2*2*0,5: </span>400
+                     м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 24,8 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель-канал: </span>200 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 12 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Монтажный комплект: </span>1 комплект
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за комплект - 2000
+                     руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     ИТОГО: 44973 руб</div>
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">бизнес</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 500 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Пульт контроля и управления С2000-М: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку-7166 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Контроллер двухпроводной линии связи С2000-КДЛ:
+                     </span>3
+                     шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph"> Цена за штуку -2364 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Блок контрольно-пусковой С2000-КПБ: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку -2829 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Блок сигнально-пусковой адресный С2000-СП2: </span>3
+                     шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 1171 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">С2000-БКИ Блок индикации с клавиатурой: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 4690 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Извещатель пожарный дымовой «ДИП-34А-03»: </span>198
+                     шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 1000 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Извещатель пожарный ручной "ИПР-513-3АМ": </span>14
+                     шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 595 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">РИП-12 исп. 01 Источник питания: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 3716 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">АКБ-17А/ч аккумулятор: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 2056 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Оповещатель охранно-пожарный световой Молния-12
+                        "Выход":
+                        2</span>5 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 160 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель канал 25х16: </span>250 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 25 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель огнестойкий, КПСнг-FRLS 1х2х0,75: </span>1800
+                     м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 18 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель силовой огнестойкий ВВГнг-FRLS 3х1,5:
+                     </span>25 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 61,7 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Труба гофрированная Ду20: </span>1800 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 6,32 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Клипса для крепления трубы Ду20: </span>20 уп
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за упаковку - 206
+                     руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Коробка распаячная 70х70х40: </span>50 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 26 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Система оповещения Рокот-5 ПУО исп.2, прибор
+                        управления
+                        оповещением: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 36095 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Рокот-5 УМ исп.1, усилитель мощности: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 16415 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Аккумулятор 12 В, 12Ач: </span>4 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 2056 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Громкоговоритель потолочный PA-620T: </span>94 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 1000 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Громкоговоритель настенный WP-06T: </span>6 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 1525 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель огнестойкий, КПСнг-FRLS 1х2х1,5: </span>1500 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 29 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Кабель силовой огнестойкий ВВГнг-FRLS 3х1,5:
+                     </span>25 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за метр - 61,7 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Труба гофрированная Ду20: </span>1800 м
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 6,32 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">
+                     <span class="page-popup-paragraph_bold">Монтажный комплект: </span>1 шт
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph">Цена за штуку - 25000 руб
+                  </div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     ИТОГО: 575069 руб</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+
+         <div class="popup-estimate" data-blockestimate="office">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="office"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+
+         <div class="popup-estimate" data-blockestimate="shop">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="shop"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+         <div class="popup-estimate" data-blockestimate="parking">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="parking"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+         <div class="popup-estimate" data-blockestimate="storage">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="storage"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+         <div class="popup-estimate" data-blockestimate="other">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="other"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+
+         <div class="popup-estimate" data-blockestimate="building">
+            <div class=" popup-estimate__wrapper">
+               <div class="popup-estimate__block-title block-title">Пожарная сигнализация в ресторане</div>
+               <div class="close-page-popup js-close-estimate-popup" data-estimateclose="building"></div>
+               <div class="popup-estimate__img-container">
+                  <img src="image/restaurant-popup.jpg" alt="" class="popup-estimate__img" title="">
+               </div>
+
+               <div class="popup-estimate__business-block">
+                  <div class="popup-estimate__popup-subtitle2 popup-subtitle2">стандарт</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     (Примерная площадь помещения
+                     до 100 кв м)</div>
+                  <div class="popup-estimate__page-popup-paragraph page-popup-paragraph page-popup-paragraph_bold">
+                     Цены на оборудование:</div>
+               </div>
+
+               <div class="popup-estimate__page-popup-subtitle page-popup-subtitle">Оставьте заявку сейчас, чтобы
+                  получить скидку 5%!</div>
+               <div class="popup-estimate__button button js-button js-button-click">Отправить заявку</div>
+            </div>
+         </div>
+      </section>
+
+      <!-- партнеры, с которыми сотрудничаем -->
+      <section class="partners">
+         <h2 class="page-title partners__page-title">Производители, с которыми мы работаем</h2>
+
+         <div class="partners-container">
+            <div class="partners-container__item">
+               <a href="#"><img src="image/logo1.png" alt=""></a>
+            </div>
+            <div class="partners-container__item">
+               <a href="#"><img src="image/logo2.png" alt=""></a>
+            </div>
+            <div class="partners-container__item">
+               <a href="#"><img src="image/logo3.png" alt=""></a>
+            </div>
+            <div class="partners-container__item">
+               <a href="#"><img src="image/logo4.png" alt=""></a>
+            </div>
+            <div class="partners-container__item">
+               <a href="#"><img src="image/logo5.png" alt=""></a>
+            </div>
+         </div>
+      </section>
+
+      <!-- доп услуги -->
+      <section class="services">
+         <h2 class="page-title services__page-title">Дополнительные услуги</h2>
+
+         <div class="tile-container">
+            <div class="tile-container__item">
+               <a href="#">
+                  <div class="tile-container__dark-background dark-background"></div>
+                  <div class="tile-container__tile-title tile-title">Техническое обслуживание</div>
+                  <img src="image/tile1.jpg" alt="" id="main-tile">
+                  <img src="image/tile1-480.jpg" alt="" id="main-tile-480">
+               </a>
+            </div>
+            <div class="tile-container__item">
+               <a href="#">
+                  <div class="tile-container__dark-background dark-background"></div>
+                  <div class="tile-container__tile-title tile-title">Монтаж видеонаблюдения</div>
+                  <img src="image/tile2.jpg" alt="" id="main-tile">
+                  <img src="image/tile2-480.jpg" alt="" id="main-tile-480">
+               </a>
+            </div>
+            <div class="tile-container__item">
+               <a href="#">
+                  <div class="tile-container__dark-background dark-background"></div>
+                  <div class="tile-container__tile-title tile-title">Огнезащита</div>
+                  <img src="image/tile3.jpg" alt="" id="main-tile" id="main-tile-480">
+                  <img src="image/tile3-480.jpg" alt="" id="main-tile-480">
+               </a>
+            </div>
+            <div class="tile-container__item">
+               <a href="#">
+                  <div class="tile-container__dark-background dark-background"></div>
+                  <div class="tile-container__tile-title tile-title">Установка скуд</div>
+                  <img src="image/tile4.jpg" alt="" id="main-tile">
+                  <img src="image/tile4-480.jpg" alt="" id="main-tile-480">
+               </a>
+            </div>
+         </div>
+      </section>
+
+      <!-- акции месца -->
+      <section class="specials">
+         <h2 class="page-title specials__page-title">Акции месяца</h2>
+
+         <div class="wrapper specials__wrapper">
+            <div class="specials__info-block info-block">
+               <div class="specials__block-title block-title">Монтаж АПС и СОУЭ</div>
+               <div class="specials__block-subtitle1 block-subtitle1">при установке до 10 датчиков</div>
+               <div class="specials__block-subtitle2 block-subtitle2">выгода до 8%</div>
+               <div class="specials__properties2 properties2">
+                  <div class="properties2__item">выгода на оборудование до 5%</div>
+                  <div class="properties2__item">выгода на монтажные работы до 3%</div>
+                  <div class="properties2__item">скидка на монтаж системы оповещения 10%</div>
+               </div>
+               <div class="button specials__button js-button-click">Заказать</div>
+            </div>
+
+            <div class="specials__info-block info-block">
+               <div class="specials__block-title block-title">Монтаж АПС и СОУЭ</div>
+               <div class="specials__block-subtitle1 block-subtitle1">при установке от 50 датчиков</div>
+               <div class="specials__block-subtitle2 block-subtitle2">выгода до 15%</div>
+               <div class="specials__properties2 properties2">
+                  <div class="properties2__item">выгода на оборудование до 5%</div>
+                  <div class="properties2__item">выгода на монтажные работы до 5%</div>
+                  <div class="properties2__item">выгода на пусконала- дочные работы до 5%</div>
+                  <div class="properties2__item">скидка на монтаж системы оповещения 10%</div>
+               </div>
+               <div class="button specials__button js-button-click">Заказать</div>
+            </div>
+
+            <div class="specials__info-block info-block">
+               <div class="specials__block-title block-title">Монтаж АПС и СОУЭ</div>
+               <div class="specials__block-subtitle1 block-subtitle1">при установке от 100 датчиков</div>
+               <div class="specials__block-subtitle2 block-subtitle2">выгода до 25%</div>
+               <div class="specials__properties2 properties2">
+                  <div class="properties2__item">выгода на оборудование до 7%</div>
+                  <div class="properties2__item">выгода на монтажные работы до 10%</div>
+                  <div class="properties2__item">исполнительная документация в подарок</div>
+                  <div class="properties2__item">выгода на пусконаладочные работы до 8%</div>
+                  <div class="properties2__item">скидка на монтаж системы оповещения 10%</div>
+               </div>
+               <div class="button specials__button js-button-click">Заказать</div>
+            </div>
+         </div>
+      </section>
+
+      <!-- большая форма заявки -->
+      <div class="banner-callback">
+         <h2 class="page-title banner-callback__page-title">Остались вопросы?</h2>
+         <div class="banner-callback__subtitle">Заполните форму и наш специалист Вам перезвонит!</div>
+         <form action="" class="banner-callback__callback-form callback-form">
+            <input type="text" class="callback-form__input input" placeholder="Ваше имя">
+            <input type="tel" class="callback-form__input input" placeholder="Ваш телефон">
+            <div class="button js-form-btn">Отправить заявку</div>
+         </form>
+      </div>
+
+      <!-- подвал -->
+      <footer class="footer">
+         <ul class="footer__nav nav">
+            <li class="footer__nav-item">
+               <a href="#">Услуги</a>
+            </li>
+            <li class="footer__nav-item active">
+               <a href="#">Проекты</a>
+            </li>
+            <li class="footer__nav-item">
+               <a href="#">Калькулятор</a>
+            </li>
+            <li class="footer__nav-item">
+               <a href="#">Контакты</a>
+            </li>
+         </ul>
+      </footer>
+
+   </div>
+
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script src="js/jquery-3.6.0.min.js"></script>
+   <script src="js/main.js"></script>
+</body>
+
+</html>

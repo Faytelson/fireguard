@@ -1,0 +1,1117 @@
+$col1: #497CE9;
+$col2: #2A2A2A;
+$col3: #FF4545;
+$col4: rgba(42, 42, 52, 0.7);
+$col5: #FF1C1C;
+$col6: #060606;
+$col7: #410e12;
+$col8: #6d0d10;
+
+@import 'reset.scss';
+
+@mixin text($fz, $fw) {
+   font-size: $fz;
+   font-weight: $fw;
+}
+@mixin adatpiveFont ($minW, $maxW, $minfz, $const) {
+   font-size: calc(#{$minfz} + #{$const} * ((100vw - #{$minW}px)/(#{$maxW} - #{$minW})));
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   color: $col2;
+   position: relative;
+   background: #eee;
+   &.lock {
+      overflow: hidden;
+   }
+   &.scroll-lock {
+      overflow: hidden;
+   }
+   &.scroll-disable {
+      overflow: hidden;
+   }
+}
+.container {
+   max-width: 1280px;
+   margin: 0 auto;
+   background: #fff;
+}
+a {
+   display: block;
+}
+
+// стилизация всплывающего по таймеру окна
+
+.overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   display: none;
+   z-index: 4;
+}
+
+.popup {
+   background: #fff;
+   max-width: 600px;
+   padding: 1.5em;
+   position: fixed;
+   top: 50vh;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   &__title {
+      font-size: 1.44rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 1em;
+      text-align: center;
+      @media (max-width: 767px) {
+         font-size: 1.25rem;
+      }
+   }
+   &__form {
+      flex-direction: column;
+      gap: 1.5em;
+   }
+   &__input {
+      margin: 0 auto;
+      width: 100%;
+   }
+}
+.close-popup {
+   position: fixed;
+   top: 2%;
+   right: 2%;
+   width: 27px;
+   height: 27px;
+   cursor: pointer;
+   &::before,
+   &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+   }
+   &::before {
+      transform: rotate(45deg);
+   }
+   &::after {
+      transform: rotate(-45deg);
+   }
+}
+
+// Стилизация шапки
+.main-logo-image {
+   width: 100px;
+   height: auto;
+}
+.mobile {
+   font-size: 1rem;
+   @media (max-width: 479px) {
+      font-size: 0.8rem;
+   }
+   font-weight: 700;
+   font-family: 'Open Sans', sans-serif;
+}
+.header {
+   &__main-logo-image {
+      padding: 1em;
+   }
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   &__menu {
+      display: flex;
+      justify-content: flex-end;
+      padding: 1.8em 1.5em;
+      align-items: center;
+      gap: 2rem;
+   }
+   &__nav {
+      display: none;
+      @media (min-width: 1280px) {
+      display: flex;
+      }
+   }
+   &__nav-item {
+      transition: all .2s linear;
+      &:hover {
+         text-shadow: 0 0 0.65px, 0 0 0.65px;
+      }
+      &.active {
+         color: $col1;
+         font-weight: 700;
+      }
+   }  
+}
+
+.menu-btn {
+   display: flex;
+   gap: 1em;
+   padding: 0.5em;
+   align-items: center;
+   cursor: pointer;
+   &__text {
+      text-transform: uppercase;
+      display: none;
+      @media (min-width: 768px) and (max-width: 1279px) {
+         display: block;
+      }
+   }
+   &__icon {
+         position: relative;
+         width: 42px;
+         height: 22px;
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+   }
+   &__burger-line {
+      width: 75%;
+      height: 2px;
+      background: $col1;
+      transition: all .3s ease-out;
+      &:nth-of-type(1) {
+         width: 100%;
+         &.show {
+            transform: translateY(10px) rotate(45deg);
+         }
+      }
+      &:nth-of-type(2) {
+         &.show {
+            display: none;
+         }
+      }
+      &:nth-of-type(3) {
+         width: 50%;
+         &.show {
+            transform: translateY(-10px) rotate(-45deg);
+            width: 100%;
+         }
+      }
+   }
+}
+
+.nav {
+   gap: 1.5rem;
+   @include text(1rem, normal);
+   text-transform: uppercase;
+   & a {
+      padding: .5rem;
+   }
+}
+
+// МЕНЮ-ВЫПАДАШКА
+.dropdown-menu {
+   position: absolute;
+   top: 100%;
+   right: 0;
+   height: 100vh;
+   overflow: auto;
+   background: rgba(73, 124, 233, 0.99);
+   z-index: 3;
+   min-width: 60%;
+   padding: 2em;
+   font-size: 1.375em;
+   color: #fff;
+   line-height: 2em;
+   display: none;
+   &__nav-item {
+      transition: all .3s ease;
+   }
+   &__nav-item.active {
+      font-weight: 700;
+   }
+   &__nav-item:hover:not(.active) {
+      text-shadow: 0 0 0.65px, 0 0 0.65px;
+   }
+   &__link {
+      padding: 0.5em;
+   }
+}
+
+// Стилизация главного блока intro
+.intro {
+   &__wrapper {
+      display: flex;
+      align-items: center;
+      @media (min-width: 576px) and (max-width: 767px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/main-image2.png) center/ cover no-repeat;
+      }
+      @media (max-width: 575px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/main-image.png) center/ cover no-repeat;
+      }
+   }
+   &__main-title {
+      margin-bottom: 1.5rem;
+   }
+   &__subtitle {
+      margin-bottom: 1.8rem;
+   }
+   &__about-us {
+      padding: 0 2.5em;
+      @media (min-width: 768px) and (max-width: 999px){
+         width: 48%;
+         padding: 1.5em;
+      }
+      @media (max-width: 767px) {
+         width: 100%;
+         color: #fff;
+         padding: 2.5em;
+      }
+      @media (max-width: 479px) {
+         padding: 1.5em;
+      }
+   }
+   &__main-background {
+      width: 42%;
+      @media (min-width: 768px) and (max-width: 999px){
+         width: 48%;
+      }
+      @media (max-width: 767px) {
+         display: none;
+      }
+   }
+   &__button {
+      @media (max-width: 767px) {
+         width: 80%;
+         margin: 0 auto;
+      }
+      @media (max-width: 575px) {
+         width: 100%;
+      }
+   }
+   .properties {
+      margin-bottom: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      &__item {
+         width: 45%;
+         margin-bottom: 2em;
+         @media (min-width: 768px) and (max-width: 999px){
+            margin-bottom: 1em;
+         }
+         @media (min-width: 480px) and (max-width: 767px) {
+            width: 48%;
+         }
+         @media (max-width: 999px) {
+            width: 100%;
+         }
+      }
+   }
+   &__input {
+      flex-grow: 1;
+      max-width: 372px;
+      @media (max-width: 999px) {
+         display: none;
+      }
+   }
+}
+
+.properties {
+   @include adatpiveFont(320, 1280, 14px, 2);
+   line-height: 1.7em;
+   @media (min-width: 1280px) {
+      font-size: 1rem;
+   }
+   &__item {
+      position: relative;
+      padding-left: 3em;
+      &::before {
+         content: '';
+         width: 1.8em;
+         height: 1.8em;
+         background: $col1 url(../image/content/white-array.svg) 50% 50%/50% auto no-repeat;
+         border-radius: 50%;
+         position: absolute;
+         top: 0;
+         left: 0;
+      }
+   }
+}
+
+.main-background img {
+      width: 100%;
+   }
+
+.main-title {
+   @include text(1.5rem, 800);
+   text-transform: uppercase;
+   line-height: 1.45;
+   @media (min-width: 1280px) {
+      font-size: 1.875rem;
+   }
+   @media (min-width: 1000px) and (max-width: 1279px){
+         @include adatpiveFont(1000, 1280, 24px, 6);
+   }
+   @media (max-width: 767px) {
+      @include text(1.5em, 800);
+   }
+   @media (max-width: 479px) {
+      @include adatpiveFont(320, 479, 20px, 7);
+   }
+}
+.subtitle {
+   @include adatpiveFont(320, 1280, 15px, 4);
+   line-height: 1.8;
+   @media (min-width: 1280px) {
+      font-size: 1.1875rem;
+   }
+   @media (min-width: 768px) and (max-width: 1279px) {
+         @include adatpiveFont(768, 1280, 16px, 3);
+   }
+   @media (max-width: 767px) {
+         @include text(15px, normal);
+   }
+}
+
+// Стилизация формы
+.callback-form {
+   display: flex;
+}
+
+.button {
+   @include text(1.0625rem, 700);
+   color: #fff;
+   padding: 18px 38px;
+   border: none;
+   background: $col3;
+   cursor: pointer;
+   transition: all .3s ease;
+   min-width: 240px;
+   text-align: center;
+   &:hover {
+      background: $col5;
+   }
+   &:active {
+      background: #fff;
+      color: $col3;
+   }
+}
+
+.input {
+   padding: 20px 25px;
+   box-shadow: 0px 10px 20px rgba(42, 42, 42, 0.15);
+   outline: none;
+   border: none;
+   &::placeholder {
+      @include text(15px, 400);
+      color: $col4;
+   }
+}
+
+// СТИЛИЗАЦИЯ БЛОКА ИНФОРМАЦИИ
+
+.page-title {
+   @include adatpiveFont(320, 1280, 20px, 6);
+   text-align: center;
+   font-weight: 700;
+   text-transform: uppercase;
+   @media (min-width: 1280px) {
+      font-size: 1.625rem;
+   }
+}
+
+.info {
+   &__page-title {
+      margin: 2em 0 2em 0;
+      padding: 1em;
+   }
+   &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 1.8em;
+      padding-bottom: 2%;
+      margin-bottom: 7%;
+      @media (max-width: 767px) {
+         padding-bottom: 3%;
+      }
+   }
+   &__info-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      position: relative;
+      width: 45%;
+      padding: 3% 3%;
+      @media (max-width: 767px) {
+         width: 75%;
+      }
+      @media (max-width: 575px) {
+         width: 85%;
+      }
+   }
+   &__block-title {
+      margin: 2em 0;
+   }
+   &__block-image {
+      margin-bottom: 2em;
+   }
+   &__properties2 {
+      margin: 1em 0;
+   }
+   &__button  {
+      padding: 1em 1.6em 1em 0;
+      position: relative;
+      display: inline-block;
+      &::before {
+      content: '';
+         width: 1.5em;
+         height: 1.5em;
+         background: url(../image/content/link-arrow.svg) center/80% auto no-repeat;
+         position: absolute;
+         top: 50%;
+         right: 0;
+         transform: translateY(-50%);
+      }
+   }
+   &__button-container {
+      cursor: pointer;
+      color: $col3;
+      &:hover {
+         color: $col5;
+      }
+      text-transform: uppercase;
+      font-weight: 700;
+      @include adatpiveFont(320, 1280, 15px, 2);
+      @media (min-width: 1280px) {
+         font-size: 1.06rem;
+      }
+   }
+   &__page-popup {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      overflow: auto;
+      display: none;
+   }
+   &__page-popup-wrapper {
+      position: relative;
+      padding: 2em;
+      @media (max-width: 479px) {
+         padding: 1em;
+      }
+   }
+   &__page-popup-image-container {
+      margin-bottom: 2em;
+   }
+   &__page-popup-subtitle {
+      margin-bottom: 2em;
+   }
+   &__page-popup-paragraph {
+      margin-bottom: 2em;
+   }
+}
+.page-popup {
+   &__properties2 {
+      margin-bottom: 2em;
+   }
+}
+.page-popup-paragraph {
+   @include adatpiveFont(320, 1280, 15px, 4);
+   @media (min-width: 1280px) {
+      font-size: 1.1875rem;
+   }
+   text-align: justify;
+   line-height: 2rem;
+}
+.page-popup-paragraph_bold {
+   font-weight: 700;
+}
+.page-popup-subtitle {
+   text-transform: uppercase;
+   @include adatpiveFont(320, 1280, 15px, 2);
+   @media (min-width: 1280px) {
+      font-size: 1rem;
+   }
+   line-height: 1.5em;
+}
+
+.close-page-popup {
+   position: absolute;
+   top: 2%;
+   right: 2%;
+   width: 30px;
+   height: 30px;
+   cursor: pointer;
+   @media (max-width: 479px) {
+      top: 0;
+   }
+   &::before,
+   &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #000;
+   }
+   &::before {
+      transform: rotate(45deg);
+   }
+   &::after {
+      transform: rotate(-45deg);
+   }
+}
+.info-block {
+   box-shadow: 0px 10px 20px rgba(42, 42, 42, 0.15);
+} 
+.block-image {
+   &__image {
+      width: 100%;
+   }
+}
+.block-title {
+   @include adatpiveFont(320, 1280, 16px, 6);
+   font-weight: 700;
+   text-align: center;
+   text-transform: uppercase;
+   @media (min-width: 1280px) {
+      font-size: 1.375rem;
+   }
+}
+.properties2 {
+   @include adatpiveFont(320, 1280, 15px, 4);
+   @media (min-width: 1280px) {
+      font-size: 1.1875rem;
+   }
+   line-height: 1.7em;
+   color: #000;
+   &__item {
+      padding-left: 1.8em;
+      position: relative;
+      &::before {
+         content: '';
+         width: 1em;
+         height: 1em;
+         background: url(../image/content/arrow.svg) center/100% auto no-repeat;
+         position: absolute;
+         top: 5px;
+         left: 0;
+      }
+   }
+}
+
+// Стилизация баннера 
+
+.banner {
+   color: #fff;
+   padding: 6% 3.5%;
+   position: relative;
+   &:first-of-type {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner1.jpg) 0 0/cover no-repeat;
+      @media (max-width: 767px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner1.480.jpg) 0 0/cover no-repeat;
+         padding: 8% 5%;
+      }
+      @media (max-width: 479px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner1.320.jpg)  0 0/cover no-repeat;
+         padding: 12% 7%;
+      }
+   }
+   &:nth-of-type(2) {
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner2.jpg) 0 0/cover no-repeat;
+      @media (max-width: 1279px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner2.1000.jpg) 0 0/cover no-repeat
+      }
+      @media (max-width: 999px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner2.768.jpg) 0 0/cover no-repeat;
+      }
+      @media (max-width: 767px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner2.480.jpg) 0 0/cover no-repeat;
+         padding: 8% 5%;
+      }
+      @media (max-width: 479px) {
+         background: linear-gradient(to top, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(../image/background-banner2.320.jpg)  0 0/cover no-repeat;
+         padding: 12% 7%;
+      }
+   }
+   &__page-title {
+      text-align: left;
+      margin-bottom: 1em;
+      padding: .3em;
+   }
+   &__subtitle {
+      margin-bottom: 1em;
+   }
+   &__image {
+      position: absolute;
+      bottom: 0;
+      display: inline-block;
+      right: 10%;
+      width: calc(0.27 * 100vw);
+      @media (min-width: 1280px) {
+         width: auto;
+      }
+      @media (max-width: 767px) {
+         display: none;
+      }
+   }
+   @media (max-width: 479px) {
+      br {
+         display: none;
+      }
+   }
+   &__input {
+      flex-grow: 1;
+      max-width: 372px;
+      @media (max-width: 999px) {
+         display: none;
+      }
+   }
+   &__button {
+      display: inline-block;
+      @media (max-width: 575px) {
+         width: 100%;
+      }
+   }
+}
+
+// Стилизация вариантов выбора
+
+.options {
+   &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5em;
+      padding: 0 3em;
+      margin-bottom: 15%;
+      @media (max-width: 999px) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+      @media (max-width: 575px) {
+         grid-template-columns: 1fr;
+         padding: 0 2em;
+      }
+   }
+   &__page-title {
+      margin: 2em 0;
+      padding: 1em;
+   }
+}
+.option {
+   position: relative;
+   & img {
+      width: 100%;
+   }
+   &__tile-title {
+      position: absolute;
+      left: 10%;;
+      bottom: 10%;
+      @media (min-width: 480px) and (max-width: 575px) {
+         br {
+            display: none;
+         }
+      }
+   }
+   &__dark-background {
+      position: absolute;
+   }
+}
+
+.tile-title {
+   @include adatpiveFont(320, 1280, 15px, 3);
+   @media (min-width: 1000px) {
+      font-size: 1rem;
+   }
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.5em;
+      z-index: 2;
+}
+.dark-background {
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   z-index: 1;
+   background: linear-gradient(180deg, rgba(73, 124, 233, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
+}
+
+
+// СТИЛИЗАЦИЯ ПРИМЕРОВ РАБОТ
+
+.portfolio {
+   &__wrapper {
+      display: flex;
+      align-items: flex-start;
+   }
+   &__popular-options {
+      padding: 0 4em;
+      @media (max-width: 1279px) {
+         display: none;
+      }
+   }
+   &__page-title {
+      margin: 3em 0;
+      padding: 1em;
+   }
+}
+.popular-options {
+   &__item {
+      cursor: pointer;
+      text-transform: uppercase;
+      line-height: 1.7em;
+      color: #000;
+      @include adatpiveFont(320, 1280, 15px, 4);
+      padding: 0.3em;
+      padding-left: 1.8em;
+      position: relative;
+      transition: all .2s linear;
+         &::before {
+            content: '';
+            width: 1em;
+            height: 1em;
+            background: url(../image/content/link-arrow.svg) center/100% auto no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+         }
+         &:hover {
+            box-shadow: 0 0 2px $col5;
+            border-radius: 3px;
+         }
+         &:active {
+            text-shadow: 0 0 0.85px;
+         }
+      @media (min-width: 1280px) {
+         font-size: 1.1875rem;
+      }
+   }
+}
+
+//SLIDER
+.slider-box {
+   max-width: 60%;
+   overflow: hidden;
+   @media (max-width: 1279px) {
+      max-width: 100%;
+   }
+   &__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3em;
+      position: relative;
+      align-items: stretch;
+      left: 0;
+      transition: all .7s ease;
+   }
+   &__item {
+      position: relative;
+      min-width: 320px;
+      border: .5em solid #fff;
+      cursor: pointer;
+   }
+   &__dark-background {
+      position: absolute;
+   }
+   &__tile-title {
+      position: absolute;
+      left: 5%;;
+      bottom: 10%;
+   }
+   &__slider-icon {
+      padding-left: 4em;
+      @media (max-width: 1279px) {
+         padding-left: 0;
+         text-align: center;
+      }
+   }
+   &__button {
+      cursor: pointer;
+      padding: .5em;
+      font-size: 1.5rem;
+      color: $col3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+}
+.slider-icon {
+   @include text(1.125rem, 700);
+   color: $col3;
+   display: flex;
+   align-items: center;
+}
+
+.slick-track {
+   display: flex;
+}
+
+// всплывашка-смета
+.popup-estimate {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   display: none;
+   z-index: 3;
+   display: none;
+   &__wrapper {
+      padding: 2em;
+      position: fixed;
+      z-index: 2;
+      top: 50vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      overflow: auto;
+      height: 100vh;
+      background: #fff;
+   }
+   &__popup-subtitle2 {
+      margin: 2em 0;
+   }
+   &__block-title {
+      margin: 2em 0;
+   }
+   &__page-popup-subtitle {
+      margin: 2em 0;
+   }
+   &__button {
+      width: 240px;
+      @media (max-width: 575px) {
+         width: 100%;
+      }
+   }
+}
+.popup-subtitle2 {
+   color: $col1;
+   font-weight: 700;
+   line-height: 1.8em;
+   font-size: 1.1rem;
+   text-transform: uppercase;
+}
+// Блок логотипов
+
+.partners {
+   &__page-title {
+      margin: 3em 0 1em;
+      padding: .5em;
+   }
+}
+.partners-container {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 2em;
+   @media (max-width: 999px) {
+      flex-wrap: wrap;
+   }
+   &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1em;
+      width: 30%;
+      @media (max-width: 575px) {
+         width: 45%;
+      }
+      @media (max-width: 479px) {
+         width: 100%;
+      }
+      & img {
+         width: 100%;
+         min-width: 135px;
+      }
+   }
+   & a {
+      display: block;
+      padding: 1em;
+   }
+}
+
+// Сервисы
+.services {
+   &__page-title {
+      margin: 1em 0 2em;
+      padding: 1em;
+   }
+}
+.tile-container {
+   display: flex;
+   justify-content: center;
+   gap: 2em;
+   padding: 0 2em;
+   margin-bottom: 5em;
+   @media (max-width: 999px) {
+      flex-wrap: wrap;
+      margin-bottom: 0;
+   }
+   &__item {
+      position: relative;
+      & img {
+         width: 100%;
+         height: auto;
+         max-width: 440px;
+      }
+      @media (min-width: 1000px) {
+         &:nth-of-type(2n) {
+            top: 5em;
+         }
+      }
+   }
+   &__dark-background {
+      position: absolute;
+   }
+   &__tile-title {
+      position: absolute;
+      padding: 0.5em;
+      left: 5%;
+      bottom: 5%;
+   }
+}
+
+#main-tile {
+   @media (min-width: 480px) and (max-width: 767px) {
+      display: none;
+   }
+}
+#main-tile-480 {
+   display: none;
+   @media (min-width: 480px) and (max-width: 767px) {
+      display: block;
+   }
+}
+
+// Стилизация блока акций
+.specials {
+   &__page-title {
+      padding: 4em 0;
+      @media (max-width: 575px) {
+         padding: 3em 0;
+      }
+   }
+   &__wrapper {
+      display: flex;
+      padding: 0 3em;
+      gap: 1.5em;
+      margin-bottom: 10%;
+      @media (max-width: 999px) {
+         flex-wrap: wrap;
+      }
+      @media (max-width: 479px) {
+         padding: 0 1em;
+      }
+   }
+   &__info-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: stretch;
+      flex-basis: 100%;
+      padding: 3em 1em;
+   }
+   &__button {
+      margin-top: auto;
+   }
+   &__block-title {
+      margin-bottom: 1.5em;
+   }
+   &__block-subtitle1 {
+      margin-bottom: 1.5em;
+      text-align: center;
+   }
+   &__block-subtitle2 {
+      margin-bottom: 1.5em;
+   }
+   &__properties2 {
+      margin-bottom: 2em;
+   }
+}
+.block-subtitle1 {
+   @include adatpiveFont(320, 1280, 15px, 4);
+   @media (min-width: 1280px) {
+      font-size: 1.19rem;
+   }
+}
+.block-subtitle2 {
+   @include adatpiveFont(320, 1280, 15px, 3);
+   @media (min-width: 1280px) {
+      font-size: 1.125rem;
+   }
+   font-weight: 700;
+   text-transform: uppercase;
+   color: $col1;
+}
+
+// Стилизация страницы формы заявки
+.banner-callback {
+   color: #fff;
+   padding: 4em 1em;
+   background: url(../image/fire.png) 100% 70%/280px no-repeat, linear-gradient(to right, $col7, $col8);
+   @media (max-width: 1279px) {
+      background: url(../image/fire.png) 100% 70%/200px no-repeat, linear-gradient(to right, $col7, $col8);
+   }
+   @media (max-width: 575px) {
+      background: linear-gradient(to right, $col7, $col8);
+   }
+   &__page-title {
+      margin-bottom: 1em;
+      padding: 0.5em;
+   }
+   &__subtitle {
+      text-align: center;
+      @include adatpiveFont(320, 1280, 16px, 6);
+      @media (min-width: 1280px) {
+         font-size: 1.375rem;
+      }
+      margin-bottom: 1em;
+      padding: 0.5em;
+   }
+   &__callback-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+      margin: 0 auto;
+      max-width: 600px;
+   }
+}
+
+
+.footer {
+   background: $col6;
+   display: flex;
+   justify-content: center;
+   &__nav {
+      display: flex;
+      padding: 3em;
+      color: #fff;
+      @media (max-width: 575px) {
+         flex-wrap: wrap;
+         padding: 2em;
+         font-size: .8em;
+      }
+   }
+   &__nav-item {
+      @media (max-width: 575px) {
+         width: 100%;
+      }
+      transition: all .1s linear;
+      &:hover {
+         text-shadow: 0 0 0.85px, 0 0 0.85px;
+      }
+      &.active {
+         font-weight: 700;
+      }
+   }
+}
